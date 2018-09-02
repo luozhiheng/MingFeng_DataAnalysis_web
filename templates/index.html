@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>铭丰包装股份有限公司</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{% static "vendor/metisMenu/metisMenu.min.css" %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static "dist/css/sb-admin-2.css" %}" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="{% static "vendor/morrisjs/morris.css" %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static "vendor/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        {% include 'index_nav.html' %}
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">看板</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-home fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">5.7</div>
+                                <div>机房COP</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url "exhibition:detail_home" %}">
+                        <div class="panel-footer">
+                            <span class="pull-left">机房信息总览</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img src="{% static "img/chiller2.png" %}" class="fa fa-5x"/>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="row text-right">
+                                    <div class="medium col-xs-6">1#:8.60</div>
+                                    <div class="medium col-xs-6">2#:8.30</div>
+                                </div>
+                                <div class="row text-right">
+                                    <div class="medium col-xs-6">3#:10.10</div>
+                                    <div class="medium col-xs-6">4#:10.02</div>
+                                </div>
+                                <div>主机COP</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url "exhibition:overview_chiller" %}">
+                        <div class="panel-footer">
+                            <span class="pull-left">主机详细信息</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-bolt fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">124</div>
+                                <div>瞬时功率</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">各设备功率</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-red">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-hourglass-half fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">13</div>
+                                <div>累计节省电费</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">电费统计图表</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> 改造前后对比
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle"
+                                        data-toggle="dropdown">
+                                    Actions
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="#">Action</a>
+                                    </li>
+                                    <li><a href="#">Another action</a>
+                                    </li>
+                                    <li><a href="#">Something else here</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div id="consume_compare" style="height:500px;width: 95%;"></div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> 改造前后电费对比
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle"
+                                        data-toggle="dropdown">
+                                    Actions
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="#">Action</a>
+                                    </li>
+                                    <li><a href="#">Another action</a>
+                                    </li>
+                                    <li><a href="#">Something else here</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div id="charge_compare" style="width: 95%;height: 600px"></div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-8 -->
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> 机房信息通知栏
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-twitter fa-fw"></i> 开启3#冷冻泵
+                                <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-envelope fa-fw"></i> 开始放冷
+                                <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-upload fa-fw"></i> 服务器重启
+                                <span class="pull-right text-muted small"><em>11:32 AM</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-bolt fa-fw"></i> 服务器异常
+                                <span class="pull-right text-muted small"><em>11:13 AM</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-warning fa-fw"></i> 服务器未响应
+                                <span class="pull-right text-muted small"><em>10:57 AM</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-envelope fa-fw"></i> 3#冷机趋近温度为4.5℃，请清理冷凝器
+                                <span class="pull-right text-muted small"><em>9:49 AM</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-money fa-fw"></i> 开始蓄冷
+                                <span class="pull-right text-muted small"><em>昨天，8:00 PM</em>
+                                    </span>
+                            </a>
+                        </div>
+                        <!-- /.list-group -->
+                        <a href="#" class="btn btn-default btn-block">所有通知</a>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> 管理通知栏
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-male fa-fw"></i> 今日值班:林高权
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-tasks fa-fw"></i> 今日任务
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-upload fa-fw"></i>
+                            </a>
+                        </div>
+                        <!-- /.list-group -->
+                        <a href="#" class="btn btn-default btn-block">所有通知</a>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel .chat-panel -->
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="{% static "vendor/metisMenu/metisMenu.min.js" %}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="{% static "dist/js/sb-admin-2.js" %}"></script>
+
+<!--EChart-->
+<script src="{% static "vendor/echart/echarts.js" %}"></script>
+
+<script>
+    $.ajax({
+        url: "{% url "exhibition:home_graph" %}",
+        type: "post",
+        data: {
+            csrfmiddlewaretoken: '{{ csrf_token }}'
+        },
+        dataType: 'jsonp',
+
+        success: function (data) {
+            var j_data0=JSON.parse(data[0]);
+            var j_data1=JSON.parse(data[1]);
+            var j_data3=JSON.parse(data[3]);
+            var j_data4=JSON.parse(data[4]);
+            draw([j_data0,j_data1,data[2],j_data3,j_data4]);
+        },
+        error: function (callback, textStatus, errorThrown) {
+            //console.log(callback,textStatus,errorThrown);
+        }
+    });
+
+    function draw(consume_result) {
+        //功率对比
+        let consume_chart = echarts.init(document.getElementById("consume_compare"), "light");
+        var simulation = consume_result[0];
+        var retrofit = consume_result[1];
+        var date1 = consume_result[2];
+        var option_p = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            toolbox: {
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: false
+                    },
+                    restore: {},
+                    brush: {
+                        type: ['lineX', 'clear']
+                    }
+                }
+            },
+            dataZoom: [
+                {
+                    id: 'dataZoomX',
+                    type: 'slider',
+                    xAxisIndex: [0],
+                    filterMode: 'filter'
+                },
+            ],
+            xAxis: {
+                data: date1
+            },
+            yAxis: {
+                name: "功率(kw)"
+            },
+            legend: {
+                data: ['模拟', '实际'],
+                x: 'center'
+            },
+            series: [
+                {
+                    name: '模拟',
+                    type: 'line',
+                    data: simulation['模拟用电']
+                },
+                {
+                    name: '实际',
+                    type: 'line',
+                    data: retrofit['实际用电']
+                }
+            ]
+        };
+        consume_chart.setOption(option_p);
+        //每日电费对比
+        let charge_compare = echarts.init(document.getElementById("charge_compare"));
+        var date = [];
+        var simu = [];
+        var retro = [];
+        var charge_s = consume_result[3];
+        var charge_r = consume_result[4];
+        for (let key1 = 0; key1 < charge_s.length; key1++) {
+            //if(charge_s[key1][0] != charge_r[key1][0]){console.log(key1);} checked pass
+            simu.push(charge_s[key1][1]);
+            retro.push(charge_r[key1][1]);
+            date.push(charge_r[key1][0]);
+        }
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            toolbox: {
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: false
+                    },
+                    restore: {},
+                    brush: {
+                        type: ['lineX', 'clear']
+                    }
+                }
+            },
+            dataZoom: [
+                {
+                    id: 'dataZoomX',
+                    type: 'slider',
+                    xAxisIndex: [0],
+                    filterMode: 'filter'
+                },
+            ],
+            xAxis: {
+                data: date
+            },
+            yAxis: {
+                name: "电费(元/日)"
+            },
+            legend: {
+                data: ['模拟', '实际'],
+                x: 'center'
+            },
+            series: [
+                {
+                    name: '模拟',
+                    type: 'line',
+                    data: simu
+                },
+                {
+                    name: '实际',
+                    type: 'line',
+                    data: retro
+                }
+            ]
+        };
+        charge_compare.setOption(option);
+    }
+</script>
+</body>
+
+</html>
