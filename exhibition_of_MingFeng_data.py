@@ -284,6 +284,7 @@ def show_electricity_consumption_diff(dt_in, freq=8, p="true"):
     electric_charge_retrofit = formula.cal_electric_charge(dt_in, power_retrofit, group='day')
     # print('原系统主机累计电费：%s\r\n新系统主机+蓄冷泵累计电费：%s' % (electric_charge_simulate, electric_charge_retrofit))
     # print('power_simulate %s\r\n power_retrofit %s' % (power_simulate, power_retrofit))
+    print("cal again,check if cache work")
     if p == "fales":
         pass
         # 绘图
