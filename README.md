@@ -10,4 +10,6 @@
 * numpy 1.13.1<br>
 * pandas 0.21.0<br>
 * matplotlib 2.1.0<br>
-* statsmodels 0.8.0
+* statsmodels 0.8.0<br>
+* python-memcached 1.59<br>
+* memcached 1.5.10<br>
